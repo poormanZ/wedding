@@ -20,7 +20,7 @@
   // 인사말과 혼주
   $("greetingText").textContent = C.greeting.join("\n");
   $("family").innerHTML = [C.groom, C.bride].map(p =>
-    `<dt>${p.father} · ${p.mother}의 ${p.relation}</dt><dd>${p.name}</dd>`).join("");
+    `<dt><span class="parents"><span>${p.father}</span><span>${p.mother}</span></span><span class="rel">의 ${p.relation}</span></dt><dd>${p.name}</dd>`).join("");
 
   // 달력
   $("calTitle").textContent = `${Y}년 ${MO}월`;

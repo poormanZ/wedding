@@ -44,8 +44,9 @@ img { max-width: 100%; display: block; }
 @keyframes settle { from { opacity: 0; transform: translateY(12px); } }
 
 .greeting p { white-space: pre-line; margin: 0 0 32px; }
-.family { display: grid; grid-template-columns: auto auto; justify-content: center; gap: 6px 14px; margin: 0; }
-.family dt { color: var(--muted); text-align: right; }
+.family { display: grid; grid-template-columns: auto auto; justify-content: center; align-items: center; gap: 10px 14px; margin: 0; }
+.family dt { color: var(--muted); display: flex; align-items: center; justify-content: flex-end; gap: .2em; }
+.family .parents { display: flex; flex-direction: column; text-align: right; line-height: 1.45; }
 .family dd { margin: 0; text-align: left; }
 
 .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; max-width: 320px; margin: 0 auto; font-size: .95rem; }
