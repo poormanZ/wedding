@@ -159,6 +159,14 @@
     bgm.play().catch(() => document.addEventListener("pointerdown", (e) => {
       if (!e.target.closest("#bgmBtn")) bgm.play().catch(() => {});
     }, { once: true }));
+    // 뒤로가기·앱 전환으로 화면을 벗어나면 멈추고, 돌아오면 이어서 튼다.
+    // 폰 브라우저는 페이지를 닫지 않고 뒤에 살려 두는 경우가 많아 음악만 계속 흐르기 때문
+    let wasOn = false;
+    const leave = () => { if (!bgm.paused) { wasOn = true; bgm.pause(); } };
+    const back = () => { if (wasOn) { wasOn = false; bgm.play().catch(() => {}); } };
+    window.addEventListener("pagehide", leave);
+    window.addEventListener("pageshow", back);
+    document.addEventListener("visibilitychange", () => document.hidden ? leave() : back());
   }
 
   // 공유
