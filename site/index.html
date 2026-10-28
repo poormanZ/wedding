@@ -19,6 +19,8 @@
 </head>
 <body>
 <main>
+  <a class="lang" href="ja/" lang="ja" hreflang="ja">日本語</a>
+  <button type="button" id="bgmBtn" class="bgm" hidden aria-pressed="false" aria-label="배경음악 켜기"><span>♪</span></button>
   <header class="hero">
     <div class="hero-photo"><img id="heroImg" alt="두 사람의 사진" fetchpriority="high" decoding="async"></div>
     <p class="hero-date" aria-hidden="true"><span id="heroMonth"></span><span class="slash">/</span><span id="heroDay"></span></p>
@@ -71,6 +73,7 @@
   <button type="button" id="viewerClose">닫기</button>
 </dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<audio id="bgm" loop preload="auto"></audio>
 
 <script src="config.js"></script>
 <script src="app.js"></script>

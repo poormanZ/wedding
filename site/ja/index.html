@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<!-- 상위 폴더의 style.css, app.js, images/ 를 그대로 쓰기 위한 기준 경로 -->
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ユ・サンウォン と 谷口 ゆり、結婚します</title>
+<meta name="description" content="2027年2月6日（土）午前11時30分、NAVER 1784 グリーンウェディングホール">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ユ・サンウォン と 谷口 ゆり、結婚します">
+<meta property="og:description" content="2027年2月6日（土）午前11時30分、NAVER 1784 グリーンウェディングホール">
+<meta property="og:image" content="__BASE_URL__/images/01.jpg">
+<meta property="og:url" content="__BASE_URL__/ja/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <a class="lang" href="./" lang="ko" hreflang="ko">한국어</a>
+  <button type="button" id="bgmBtn" class="bgm" hidden aria-pressed="false" aria-label="BGMをオン"><span>♪</span></button>
+  <header class="hero">
+    <div class="hero-photo"><img id="heroImg" alt="二人の写真" fetchpriority="high" decoding="async"></div>
+    <p class="hero-date" aria-hidden="true"><span id="heroMonth"></span><span class="slash">/</span><span id="heroDay"></span></p>
+    <h1 class="hero-names"><span id="gName"></span><span class="and">と</span><span id="bName"></span></h1>
+    <p class="hero-when" id="heroWhen"></p>
+    <p class="hero-where" id="heroWhere"></p>
+  </header>
+
+  <section class="greeting">
+    <h2>ご招待</h2>
+    <p id="greetingText"></p>
+    <dl class="family" id="family"></dl>
+  </section>
+
+  <section class="calendar">
+    <h2 id="calTitle"></h2>
+    <div class="cal-grid" id="calGrid" role="grid"></div>
+    <p class="dday" id="dday"></p>
+  </section>
+
+  <section class="gallery">
+    <h2>二人の写真</h2>
+    <div class="gal-grid" id="galGrid"></div>
+  </section>
+
+  <section class="location">
+    <h2>アクセス</h2>
+    <p class="venue-name" id="venueName"></p>
+    <p class="venue-addr" id="venueAddr"></p>
+    <div class="map-actions">
+      <a id="googleLink" target="_blank" rel="noopener">Googleマップで見る</a>
+      <a id="naverLink" target="_blank" rel="noopener">NAVERマップで見る</a>
+      <a id="kakaoLink" target="_blank" rel="noopener">カカオマップで見る</a>
+      <button type="button" id="copyAddr">住所をコピー</button>
+    </div>
+    <dl class="transit" id="transit"></dl>
+  </section>
+
+  <footer>
+    <button type="button" id="share" class="share">招待状をシェア</button>
+  </footer>
+</main>
+
+<dialog id="viewer" aria-label="写真を拡大">
+  <img id="viewerImg" alt="">
+  <button type="button" id="viewerClose">閉じる</button>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<audio id="bgm" loop preload="auto"></audio>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

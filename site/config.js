@@ -24,12 +24,35 @@ window.INVITE = {
 
   // site/images 폴더에 파일을 넣고 이름을 적으세요. 첫 번째가 대표 사진입니다.
   photos: ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg"],
+  bgm: "audio/bgm.mp3", // 배경음악. 빈 문자열이면 버튼이 안 보임
 
   accounts: {
     groom: [
       { who: "신랑", bank: "하나은행", number: "33791054048307", holder: "유상원" },
       { who: "신랑 아버지", bank: "은행", number: "000-0000-0000", holder: "유승한" },
       { who: "신랑 어머니", bank: "은행", number: "000-0000-0000", holder: "이정애" }
+    ]
+  },
+
+  // 일본어판(ja/)에서 위 값 대신 쓰는 내용. 계좌는 일본어판에 없음
+  ja: {
+    groom: { name: "ユ・サンウォン", father: "ユ・スンハン", mother: "イ・ジョンエ", relation: "息子" },
+    bride: { name: "谷口 ゆり", father: "谷口 たけとし", mother: "谷口 みきこ", relation: "娘" },
+    venue: {
+      name: "NAVER 1784",
+      hall: "グリーンウェディングホール",
+      address: "京畿道 城南市 盆唐区 亭子一路95 NAVER 1784",
+      transit: [
+        { label: "地下鉄", text: "新盆唐線・水仁盆唐線 亭子(チョンジャ)駅 3番出口" },
+        { label: "バス", text: "NAVERグリーンファクトリー または アデナパレス 停留所" },
+        { label: "駐車", text: "NAVER 1784 地下駐車場" }
+      ]
+    },
+    greeting: [
+      "お互いの季節になってくれた二人が",
+      "同じ冬を越えて、春を迎えようとしています。",
+      "ご多用の中お越しいただき祝福してくださいましたら",
+      "いつまでも感謝の気持ちを大切にいたします。"
     ]
   }
 };
