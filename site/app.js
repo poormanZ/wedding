@@ -79,12 +79,37 @@
   }, true);
   gal.innerHTML = C.photos.map((f, i) =>
     `<button type="button" data-src="images/${f}" aria-label="${T.photo(i + 1)}"><img src="images/thumb/${f}" alt="" loading="lazy" decoding="async"></button>`).join("");
-  const viewer = $("viewer");
+  const viewer = $("viewer"), vImg = $("viewerImg");
+  let cur = 0;
+  const show = (i) => {
+    cur = (i + C.photos.length) % C.photos.length;
+    vImg.src = "images/" + C.photos[cur];
+    $("viewerCount").textContent = `${cur + 1} / ${C.photos.length}`;
+    // 다음·이전 사진을 미리 받아 두면 넘길 때 끊기지 않는다
+    [cur + 1, cur - 1].forEach(j => { new Image().src = "images/" + C.photos[(j + C.photos.length) % C.photos.length]; });
+  };
   gal.addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
-    $("viewerImg").src = b.dataset.src; viewer.showModal();
+    show([...gal.children].indexOf(b)); viewer.showModal();
   });
+  $("viewerPrev").onclick = () => show(cur - 1);
+  $("viewerNext").onclick = () => show(cur + 1);
   $("viewerClose").onclick = () => viewer.close();
+  // 사진 왼쪽 절반을 누르면 이전, 오른쪽 절반은 다음
+  vImg.addEventListener("click", (e) => {
+    const r = vImg.getBoundingClientRect();
+    show(e.clientX - r.left < r.width / 2 ? cur - 1 : cur + 1);
+  });
+  let sx = 0, sy = 0;
+  viewer.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+  viewer.addEventListener("touchend", (e) => {
+    const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) show(dx < 0 ? cur + 1 : cur - 1);
+  });
+  viewer.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") show(cur + 1);
+    if (e.key === "ArrowLeft") show(cur - 1);
+  });
   viewer.addEventListener("click", (e) => { if (e.target === viewer) viewer.close(); });
 
   // 오시는 길

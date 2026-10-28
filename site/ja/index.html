@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:,">
 <!-- 디자인을 고치면 ?v= 숫자를 올려야 폰 캐시가 새 CSS 를 받음 -->
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 <div class="frame" aria-hidden="true"><div class="frame-line"></div><div class="sprig tl"></div><div class="sprig br"></div></div>
@@ -69,12 +69,17 @@
 
 <dialog id="viewer" aria-label="写真を拡大">
   <img id="viewerImg" alt="">
+  <div class="viewer-nav">
+    <button type="button" id="viewerPrev" aria-label="前の写真">&#8249;</button>
+    <span id="viewerCount" aria-live="polite"></span>
+    <button type="button" id="viewerNext" aria-label="次の写真">&#8250;</button>
+  </div>
   <button type="button" id="viewerClose">閉じる</button>
 </dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <audio id="bgm" loop preload="auto"></audio>
 
 <script src="config.js"></script>
-<script src="app.js"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
