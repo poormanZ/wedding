@@ -12,6 +12,7 @@ site/app.js                   달력, D-day, 갤러리, 복사·공유
 site/style.css                디자인
 site/images/                  사진 (01.jpg가 대표 사진)
 site/images/thumb/            갤러리용 작은 사진 (만드는 법은 images/README.md)
+site/images/deco/             배경 장식(꽃가지 SVG)
 site/audio/bgm.mp3            배경음악 (없으면 버튼이 안 보임, 자세한 건 audio/README.md)
 ```
 

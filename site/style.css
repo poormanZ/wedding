@@ -1,17 +1,22 @@
 :root {
-  --pine: #2f4a3a;      /* 상록수 */
-  --frost: #eef2ef;     /* 서리 */
-  --mist: #c9d6cf;
-  --ink: #1e2a24;
-  --muted: #6f7f77;
-  --paper: #fbfcfb;
-  --sun: #b23b3b;       /* 일요일 */
+  --pine: #4f6246;      /* 잎 그늘 */
+  --gold: #b39a62;      /* 테두리·장식 */
+  --frost: #e9e3d4;     /* 종이 바깥 */
+  --mist: #d9d1bd;
+  --ink: #2a2b25;
+  --muted: #7b7666;
+  --paper: #f6f2e7;     /* 종이 */
+  --sun: #a8463c;       /* 일요일 */
+  --corner: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M9 1l2.4 8L9 17 6.6 9zM1 9l8-2.4L17 9l-8 2.4z' fill='%23b39a62'/%3E%3C/svg%3E");
+  --sprout: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 15V7' stroke='%23b39a62' stroke-width='1.1' stroke-linecap='round'/%3E%3Cpath d='M8 10C4.5 10 2.5 7.5 2.5 4c3.5 0 5.5 2.5 5.5 6zM8 8c0-3.5 2-6 5.5-6 0 3.5-2 6-5.5 6z' fill='%23b39a62'/%3E%3C/svg%3E");
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --pine: #9cc2aa; --frost: #1b2621; --mist: #33463c;
-    --ink: #e4ebe6; --muted: #9aaba2; --paper: #121a16; --sun: #e08a8a;
+    --pine: #a9bb98; --gold: #9c885a; --frost: #121309; --mist: #3b3a2f;
+    --ink: #e8e2d3; --muted: #a39d8b; --paper: #1b1c15; --sun: #e08a7a;
+    --corner: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M9 1l2.4 8L9 17 6.6 9zM1 9l8-2.4L17 9l-8 2.4z' fill='%239c885a'/%3E%3C/svg%3E");
+    --sprout: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 15V7' stroke='%239c885a' stroke-width='1.1' stroke-linecap='round'/%3E%3Cpath d='M8 10C4.5 10 2.5 7.5 2.5 4c3.5 0 5.5 2.5 5.5 6zM8 8c0-3.5 2-6 5.5-6 0 3.5-2 6-5.5 6z' fill='%239c885a'/%3E%3C/svg%3E");
     color-scheme: dark;
   }
 }
@@ -23,16 +28,65 @@ body {
   line-height: 1.85; font-size: 16px;
   padding: env(safe-area-inset-top, 0) 0 env(safe-area-inset-bottom, 0);
 }
-main { max-width: 440px; margin: 0 auto; background: var(--paper); min-height: 100vh; }
-section { padding: 64px 28px; text-align: center; border-top: 1px solid var(--mist); }
-h2 { font-size: 1.25rem; font-weight: 700; color: var(--pine); margin: 0 0 24px; letter-spacing: .02em; }
+main { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; min-height: 100vh; }
+section { padding: 56px 32px; text-align: center; }
+h2 {
+  font-size: 1.25rem; font-weight: 700; color: var(--gold); margin: 0 0 28px; letter-spacing: .14em;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+/* 청첩장 카드의 "─ ❧ ─" 구분선 */
+h2::after {
+  content: ""; width: 132px; height: 16px;
+  background:
+    linear-gradient(var(--gold), var(--gold)) left center / 48px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right center / 48px 1px no-repeat,
+    var(--sprout) center / 16px no-repeat;
+}
+
+/* 종이 질감 + 금색 이중 테두리 + 모서리 꽃가지. 본문 뒤에 고정되어 카드처럼 보이게 함 */
+.frame {
+  position: fixed; z-index: 0; top: 0; bottom: 0; left: 50%; width: min(100vw, 440px);
+  transform: translateX(-50%); background: var(--paper); pointer-events: none; overflow: hidden;
+}
+.frame::before {
+  content: ""; position: absolute; inset: 0; opacity: .55;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .36 0 0 0 0 .24 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.frame::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 45%, transparent 50%, rgba(110, 90, 50, .09));
+}
+.frame-line {
+  position: absolute; left: 10px; right: 10px;
+  top: calc(10px + env(safe-area-inset-top, 0)); bottom: calc(10px + env(safe-area-inset-bottom, 0));
+  border: 1px solid var(--gold);
+  background:
+    var(--corner) -9px -9px / 18px no-repeat, var(--corner) calc(100% + 9px) -9px / 18px no-repeat,
+    var(--corner) -9px calc(100% + 9px) / 18px no-repeat, var(--corner) calc(100% + 9px) calc(100% + 9px) / 18px no-repeat;
+}
+.frame-line::before {
+  content: ""; position: absolute; inset: 4px;
+  border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+}
+.sprig {
+  position: absolute; width: 42%; aspect-ratio: 220 / 300;
+  background: url("images/deco/sprig.svg") center / contain no-repeat;
+}
+.sprig.tl { top: calc(4px + env(safe-area-inset-top, 0)); left: 4px; }
+.sprig.br { bottom: calc(4px + env(safe-area-inset-bottom, 0)); right: 4px; transform: rotate(180deg); }
+@media (prefers-color-scheme: dark) {
+  .frame::before { opacity: .35; }
+  .frame::after { background: radial-gradient(ellipse 70% 60% at 50% 45%, transparent 50%, rgba(0, 0, 0, .35)); }
+  .sprig { opacity: .6; filter: brightness(.85) saturate(.8); }
+}
 img { max-width: 100%; display: block; }
 :focus-visible { outline: 2px solid var(--pine); outline-offset: 3px; }
 
 /* 대표 화면: 사진 위에 큰 날짜가 걸쳐 있는 구성 */
-.hero { position: relative; text-align: center; padding-bottom: 56px; }
-.hero-photo { aspect-ratio: 3 / 4; background: var(--mist); overflow: hidden; }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hero { position: relative; text-align: center; padding: calc(68px + env(safe-area-inset-top, 0)) 32px 56px; }
+/* 사진을 종이에 붙인 액자처럼: 금색 선 안에 여백을 두고 사진 */
+.hero-photo { aspect-ratio: 3 / 4; padding: 6px; border: 1px solid color-mix(in srgb, var(--gold) 70%, transparent); overflow: hidden; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; background: var(--mist); }
 .hero-date {
   margin: -0.62em 0 0; font-size: 7.5rem; line-height: 1; color: var(--pine);
   font-weight: 400; position: relative; animation: settle 1.4s ease-out both;
@@ -69,7 +123,7 @@ dialog button { display: block; margin: 16px auto 0; }
 .venue-addr { margin: 4px 0 24px; color: var(--muted); }
 .map-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
 .map-actions a, button {
-  font: inherit; font-size: .9rem; color: var(--pine); background: transparent;
+  font: inherit; font-size: .9rem; color: var(--pine); background: color-mix(in srgb, var(--paper) 60%, transparent);
   border: 1px solid var(--pine); border-radius: 999px; padding: 6px 16px; text-decoration: none; cursor: pointer;
 }
 .transit { text-align: left; margin: 32px 0 0; }
@@ -82,7 +136,7 @@ dialog button { display: block; margin: 16px auto 0; }
 .gift li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 0; }
 .gift li small { color: var(--muted); display: block; }
 
-footer { padding: 48px 28px 64px; text-align: center; border-top: 1px solid var(--mist); }
+footer { padding: 24px 32px 72px; text-align: center; }
 .share { background: var(--pine); color: var(--paper); padding: 12px 28px; font-size: 1rem; }
 
 .lang {
