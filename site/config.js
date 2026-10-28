@@ -1,17 +1,17 @@
 // 청첩장 내용은 이 파일만 고치면 됩니다.
 window.INVITE = {
-  groom: { name: "유상원", father: "아버지 성함", mother: "어머니 성함", relation: "아들" },
-  bride: { name: "신부 이름", father: "아버지 성함", mother: "어머니 성함", relation: "딸" },
+  groom: { name: "유상원", father: "유승한", mother: "이정애", relation: "아들" },
+  bride: { name: "타니구치 유리", father: "아버지 성함", mother: "어머니 성함", relation: "딸" },
 
-  date: "2027-02-06T12:00:00+09:00", // 예식 시각
+  date: "2027-02-06T11:30:00+09:00", // 예식 시각
   venue: {
-    name: "예식장 이름",
-    hall: "홀 이름",
-    address: "예식장 주소를 입력하세요",
+    name: "네이버 1784",
+    hall: "그린웨딩홀",
+    address: "경기도 성남시 분당구 정자일로 95 네이버 1784",
     transit: [
-      { label: "지하철", text: "가까운 역과 출구를 적어주세요" },
+      { label: "전철", text: "정자역 출구를 적어주세요" },
       { label: "버스", text: "정류장과 노선을 적어주세요" },
-      { label: "주차", text: "주차 안내를 적어주세요 (설 연휴 혼잡 예상)" }
+      { label: "주차", text: "네이버 1784 지하주차장" }
     ]
   },
 
