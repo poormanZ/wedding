@@ -3,24 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>유상원 그리고 신부 이름, 결혼합니다</title>
-<meta name="description" content="2027년 2월 6일 토요일 낮 12시">
+<title>유상원 그리고 타니구치 유리, 결혼합니다</title>
+<meta name="description" content="2027년 2월 6일 토요일 오전 11시 30분, 네이버 1784 그린웨딩홀">
 <!-- 카카오톡·문자 미리보기. __BASE_URL__ 은 배포 시 자동으로 바뀝니다 -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="유상원 그리고 신부 이름, 결혼합니다">
-<meta property="og:description" content="2027년 2월 6일 토요일 낮 12시">
+<meta property="og:title" content="유상원 그리고 타니구치 유리, 결혼합니다">
+<meta property="og:description" content="2027년 2월 6일 토요일 오전 11시 30분, 네이버 1784 그린웨딩홀">
 <meta property="og:image" content="__BASE_URL__/images/01.jpg">
 <meta property="og:url" content="__BASE_URL__/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
   <header class="hero">
-    <div class="hero-photo"><img id="heroImg" alt="두 사람의 사진"></div>
-    <p class="hero-date" aria-hidden="true"><span>2</span><span class="slash">/</span><span>6</span></p>
+    <div class="hero-photo"><img id="heroImg" alt="두 사람의 사진" fetchpriority="high" decoding="async"></div>
+    <p class="hero-date" aria-hidden="true"><span id="heroMonth"></span><span class="slash">/</span><span id="heroDay"></span></p>
     <h1 class="hero-names"><span id="gName"></span><span class="and">그리고</span><span id="bName"></span></h1>
     <p class="hero-when" id="heroWhen"></p>
     <p class="hero-where" id="heroWhere"></p>
@@ -34,7 +35,7 @@
 
   <section class="calendar">
     <h2 id="calTitle"></h2>
-    <div class="cal-grid" id="calGrid" role="grid" aria-label="2월 달력"></div>
+    <div class="cal-grid" id="calGrid" role="grid"></div>
     <p class="dday" id="dday"></p>
   </section>
 
@@ -57,7 +58,7 @@
 
   <section class="gift">
     <h2>마음 전하실 곳</h2>
-    <details><summary>신랑 측 계좌</summary><ul id="accGroom"></ul></details>
+    <div id="accounts"></div>
   </section>
 
   <footer>

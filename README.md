@@ -10,6 +10,7 @@ site/config.js                이름·일시·장소·인사말·계좌 (여기�
 site/app.js                   달력, D-day, 갤러리, 복사·공유
 site/style.css                디자인
 site/images/                  사진 (01.jpg가 대표 사진)
+site/images/thumb/            갤러리용 작은 사진 (만드는 법은 images/README.md)
 ```
 
 ## 처음 배포하기
@@ -20,7 +21,7 @@ site/images/                  사진 (01.jpg가 대표 사진)
 ## 수정하기
 - 내용: `site/config.js`
 - 미리보기 제목·설명: `site/index.html`의 `<title>`, `og:title`, `og:description`
-- 사진: `site/images/`에 넣고 `config.js`의 `photos`에 추가
+- 사진: `site/images/`에 넣고 `config.js`의 `photos`에 추가. 같은 이름으로 `thumb/`에 작은 버전도 만들면 갤러리가 빨라짐(없으면 원본을 씀)
 
 ## 참고
 - 카카오톡은 미리보기를 캐시하므로, 대표 사진을 바꾼 뒤에는 카카오 개발자 사이트의 공유 디버거에서 캐시를 초기화해야 새 이미지가 보입니다.

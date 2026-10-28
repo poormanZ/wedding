@@ -28,7 +28,7 @@ window.INVITE = {
   accounts: {
     groom: [
       { who: "신랑", bank: "하나은행", number: "33791054048307", holder: "유상원" },
-      { who: "신랑 아버지", bank: "은행", number: "000-0000-0000", holder: "유승한" }
+      { who: "신랑 아버지", bank: "은행", number: "000-0000-0000", holder: "유승한" },
       { who: "신랑 어머니", bank: "은행", number: "000-0000-0000", holder: "이정애" }
     ]
   }
