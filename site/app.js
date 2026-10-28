@@ -67,7 +67,6 @@
   const accRow = (a) => `<li><div>${a.who} ${a.holder}<small>${a.bank} ${a.number}</small></div>
     <button type="button" data-acc="${a.bank} ${a.number} ${a.holder}">복사</button></li>`;
   $("accGroom").innerHTML = C.accounts.groom.map(accRow).join("");
-  $("accBride").innerHTML = C.accounts.bride.map(accRow).join("");
   document.querySelector(".gift").addEventListener("click", (e) => {
     const b = e.target.closest("[data-acc]"); if (b) copy(b.dataset.acc, "계좌번호를 복사했어요");
   });

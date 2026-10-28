@@ -1,7 +1,7 @@
 // 청첩장 내용은 이 파일만 고치면 됩니다.
 window.INVITE = {
   groom: { name: "유상원", father: "유승한", mother: "이정애", relation: "아들" },
-  bride: { name: "타니구치 유리", father: "아버지 성함", mother: "어머니 성함", relation: "딸" },
+  bride: { name: "타니구치 유리", father: "타니구치 타케토시", mother: "타니구치 미키코", relation: "딸" },
 
   date: "2027-02-06T11:30:00+09:00", // 예식 시각
   venue: {
@@ -9,8 +9,8 @@ window.INVITE = {
     hall: "그린웨딩홀",
     address: "경기도 성남시 분당구 정자일로 95 네이버 1784",
     transit: [
-      { label: "전철", text: "정자역 출구를 적어주세요" },
-      { label: "버스", text: "정류장과 노선을 적어주세요" },
+      { label: "전철", text: "정자역 3번 출구" },
+      { label: "버스", text: "네이버 그린팩토리 or 아데나팰리스 정류장" },
       { label: "주차", text: "네이버 1784 지하주차장" }
     ]
   },
@@ -27,11 +27,9 @@ window.INVITE = {
 
   accounts: {
     groom: [
-      { who: "신랑", bank: "은행", number: "000-0000-0000", holder: "유상원" },
-      { who: "신랑 아버지", bank: "은행", number: "000-0000-0000", holder: "성함" }
-    ],
-    bride: [
-      { who: "신부", bank: "은행", number: "000-0000-0000", holder: "성함" }
+      { who: "신랑", bank: "하나은행", number: "33791054048307", holder: "유상원" },
+      { who: "신랑 아버지", bank: "은행", number: "000-0000-0000", holder: "유승한" }
+      { who: "신랑 어머니", bank: "은행", number: "000-0000-0000", holder: "이정애" }
     ]
   }
 };
