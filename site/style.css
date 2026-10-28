@@ -92,7 +92,7 @@ img { max-width: 100%; display: block; }
   font-weight: 400; position: relative; animation: settle 1.4s ease-out both;
 }
 .hero-date .slash { font-size: .55em; vertical-align: .35em; margin: 0 .12em; opacity: .6; }
-.hero-names { font-size: clamp(1.1rem, 5.4vw, 1.45rem); font-weight: 700; margin: 20px 0 8px; display: flex; justify-content: center; align-items: baseline; gap: .5em; white-space: nowrap; }
+.hero-names { font-size: clamp(1.25rem, 6.6vw, 1.7rem); font-weight: 700; margin: 20px 0 8px; display: flex; justify-content: center; align-items: baseline; gap: .5em; white-space: nowrap; }
 .hero-names .and { font-size: .9rem; font-weight: 400; color: var(--muted); }
 .hero-when, .hero-where { margin: 0; color: var(--muted); word-break: keep-all; }
 @keyframes settle { from { opacity: 0; transform: translateY(12px); } }
@@ -151,7 +151,7 @@ footer { padding: 24px 32px 72px; text-align: center; }
 }
 html[lang="ja"] body { font-family: "Gowun Batang", "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif; }
 /* 일본어 이름은 글자 수가 많아 한 단계 더 작게 */
-html[lang="ja"] .hero-names { font-size: clamp(1rem, 4.8vw, 1.3rem); gap: .4em; }
+html[lang="ja"] .hero-names { font-size: clamp(1.15rem, 5.8vw, 1.5rem); gap: .4em; }
 
 .bgm {
   position: fixed; z-index: 2; top: calc(14px + env(safe-area-inset-top, 0));
