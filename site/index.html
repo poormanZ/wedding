@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유상원 그리고 신부 이름, 결혼합니다</title>
+<meta name="description" content="2027년 2월 6일 토요일 낮 12시">
+<!-- 카카오톡·문자 미리보기. __BASE_URL__ 은 배포 시 자동으로 바뀝니다 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="유상원 그리고 신부 이름, 결혼합니다">
+<meta property="og:description" content="2027년 2월 6일 토요일 낮 12시">
+<meta property="og:image" content="__BASE_URL__/images/01.jpg">
+<meta property="og:url" content="__BASE_URL__/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header class="hero">
+    <div class="hero-photo"><img id="heroImg" alt="두 사람의 사진"></div>
+    <p class="hero-date" aria-hidden="true"><span>2</span><span class="slash">/</span><span>6</span></p>
+    <h1 class="hero-names"><span id="gName"></span><span class="and">그리고</span><span id="bName"></span></h1>
+    <p class="hero-when" id="heroWhen"></p>
+    <p class="hero-where" id="heroWhere"></p>
+  </header>
+
+  <section class="greeting">
+    <h2>초대합니다</h2>
+    <p id="greetingText"></p>
+    <dl class="family" id="family"></dl>
+  </section>
+
+  <section class="calendar">
+    <h2 id="calTitle"></h2>
+    <div class="cal-grid" id="calGrid" role="grid" aria-label="2월 달력"></div>
+    <p class="dday" id="dday"></p>
+  </section>
+
+  <section class="gallery">
+    <h2>우리의 사진</h2>
+    <div class="gal-grid" id="galGrid"></div>
+  </section>
+
+  <section class="location">
+    <h2>오시는 길</h2>
+    <p class="venue-name" id="venueName"></p>
+    <p class="venue-addr" id="venueAddr"></p>
+    <div class="map-actions">
+      <a id="naverLink" target="_blank" rel="noopener">네이버 지도에서 보기</a>
+      <a id="kakaoLink" target="_blank" rel="noopener">카카오맵에서 보기</a>
+      <button type="button" id="copyAddr">주소 복사</button>
+    </div>
+    <dl class="transit" id="transit"></dl>
+  </section>
+
+  <section class="gift">
+    <h2>마음 전하실 곳</h2>
+    <details><summary>신랑 측 계좌</summary><ul id="accGroom"></ul></details>
+    <details><summary>신부 측 계좌</summary><ul id="accBride"></ul></details>
+  </section>
+
+  <footer>
+    <button type="button" id="share" class="share">청첩장 공유하기</button>
+  </footer>
+</main>
+
+<dialog id="viewer" aria-label="사진 크게 보기">
+  <img id="viewerImg" alt="">
+  <button type="button" id="viewerClose">닫기</button>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
