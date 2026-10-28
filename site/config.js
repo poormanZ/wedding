@@ -37,7 +37,7 @@ window.INVITE = {
   // 일본어판(ja/)에서 위 값 대신 쓰는 내용. 계좌는 일본어판에 없음
   ja: {
     groom: { name: "ユ・サンウォン", father: "ユ・スンハン", mother: "イ・ジョンエ", relation: "息子" },
-    bride: { name: "谷口 ゆり", father: "谷口 たけとし", mother: "谷口 みきこ", relation: "娘" },
+    bride: { name: "谷口由莉", father: "谷口武敏", mother: "谷口美紀子", relation: "娘" },
     venue: {
       name: "NAVER 1784",
       hall: "グリーンウェディングホール",
