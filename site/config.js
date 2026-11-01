@@ -22,8 +22,6 @@ window.INVITE = {
     "오래도록 감사히 간직하겠습니다."
   ],
 
-  // site/images 폴더에 파일을 넣고 이름을 적으세요. 첫 번째가 대표 사진입니다.
-  photos: ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg"],
   bgm: "audio/bgm.mp3", // 배경음악. 빈 문자열이면 버튼이 안 보임
 
   accounts: {
