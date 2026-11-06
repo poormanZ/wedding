@@ -38,10 +38,14 @@
   const [, Y, MO, D, H, MI] = C.date.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/).map(Number);
   const when = new Date(Y, MO - 1, D, H, MI);
 
-  // 대표 화면. 사진이 아직 없으면 액자 자리만 비워 둔다
+  // 대표 화면. 원본이 아직 없으면 thumb/ 의 작은 사진을 대신 쓰고, 그것도 없으면 액자 자리만 비워 둔다
   const photos = C.photos || [];
+  const thumbOf = (src) => src.replace("images/", "images/thumb/");
   if (photos[0]) {
-    $("heroImg").onerror = function () { this.remove(); };
+    $("heroImg").onerror = function () {
+      if (!this.src.includes("/thumb/")) this.src = thumbOf(this.getAttribute("src"));
+      else { this.remove(); document.querySelector(".hero-photo").classList.add("empty"); }
+    };
     $("heroImg").src = "images/" + photos[0];
   } else {
     $("heroImg").remove();
@@ -88,6 +92,7 @@
     ? `<button type="button" data-src="images/${photos[i]}" aria-label="${T.photo(i + 1)}"><img src="images/thumb/${photos[i]}" alt="" loading="lazy" decoding="async"></button>`
     : `<span class="empty"></span>`).join("");
   const viewer = $("viewer"), vImg = $("viewerImg");
+  vImg.onerror = () => { if (!vImg.src.includes("/thumb/")) vImg.src = thumbOf(vImg.getAttribute("src")); };
   let cur = 0;
   const show = (i) => {
     cur = (i + photos.length) % photos.length;
