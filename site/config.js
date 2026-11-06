@@ -22,6 +22,10 @@ window.INVITE = {
     "오래도록 감사히 간직하겠습니다."
   ],
 
+  // site/images 폴더에 파일을 넣고 이름을 적으세요. 첫 번째가 대표 사진입니다.
+  // 비어 있으면 대표 사진·갤러리 자리를 빈 칸으로 남깁니다.
+  photos: [],
+  photoSlots: 6, // 사진이 photoSlots보다 적을 때 빈 칸으로 채울 갤러리 칸 수
   bgm: "audio/bgm.mp3", // 배경음악. 빈 문자열이면 버튼이 안 보임
 
   accounts: {

@@ -13,52 +13,55 @@
 <meta property="og:url" content="__BASE_URL__/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:,">
 <!-- 디자인을 고치면 ?v= 숫자를 올려야 폰 캐시가 새 CSS 를 받음 -->
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
+<div class="frame" aria-hidden="true"><div class="frame-line"></div><div class="sprig tl"></div><div class="sprig br"></div></div>
 <main>
   <a class="lang" href="ja/" lang="ja" hreflang="ja">日本語</a>
   <button type="button" id="bgmBtn" class="bgm" hidden aria-pressed="false" aria-label="배경음악 켜기"><span>♪</span></button>
   <header class="hero">
-    <div class="hero-art">
-      <p class="eyebrow">WEDDING INVITATION</p>
-      <h1 class="hero-names"><span id="gName"></span><span class="and">그리고</span><span id="bName"></span></h1>
-    </div>
-    <p class="hero-date" aria-hidden="true"><span id="heroMonth"></span><span class="dot"></span><span id="heroDay"></span></p>
+    <div class="hero-photo"><img id="heroImg" alt="두 사람의 사진" fetchpriority="high" decoding="async"></div>
+    <p class="hero-date" aria-hidden="true"><span id="heroMonth"></span><span class="slash">/</span><span id="heroDay"></span></p>
+    <h1 class="hero-names"><span id="gName"></span><span class="and">그리고</span><span id="bName"></span></h1>
     <p class="hero-when" id="heroWhen"></p>
     <p class="hero-where" id="heroWhere"></p>
   </header>
 
   <section class="greeting">
-    <h2><small>INVITATION</small>초대합니다</h2>
+    <h2>초대합니다</h2>
     <p id="greetingText"></p>
-    <ul class="family" id="family"></ul>
+    <dl class="family" id="family"></dl>
   </section>
 
   <section class="calendar">
-    <h2><small>CALENDAR</small><span id="calTitle"></span></h2>
+    <h2 id="calTitle"></h2>
     <div class="cal-grid" id="calGrid" role="grid"></div>
     <p class="dday" id="dday"></p>
   </section>
 
+  <section class="gallery">
+    <h2>우리의 사진</h2>
+    <div class="gal-grid" id="galGrid"></div>
+  </section>
+
   <section class="location">
-    <h2><small>LOCATION</small>오시는 길</h2>
+    <h2>오시는 길</h2>
     <p class="venue-name" id="venueName"></p>
     <p class="venue-addr" id="venueAddr"></p>
     <div class="map-actions">
-      <a id="naverLink" target="_blank" rel="noopener">네이버 지도</a>
-      <a id="kakaoLink" target="_blank" rel="noopener">카카오맵</a>
+      <a id="naverLink" target="_blank" rel="noopener">네이버 지도에서 보기</a>
+      <a id="kakaoLink" target="_blank" rel="noopener">카카오맵에서 보기</a>
       <button type="button" id="copyAddr">주소 복사</button>
     </div>
     <dl class="transit" id="transit"></dl>
   </section>
 
   <section class="gift">
-    <h2><small>WITH HEART</small>마음 전하실 곳</h2>
-    <p class="gift-note">축하의 마음을 전하실 분들을 위해<br>계좌번호를 적어 두었습니다.<br>너그러운 마음으로 양해 부탁드립니다.</p>
+    <h2>마음 전하실 곳</h2>
     <div id="accounts"></div>
   </section>
 
@@ -67,10 +70,19 @@
   </footer>
 </main>
 
+<dialog id="viewer" aria-label="사진 크게 보기">
+  <img id="viewerImg" alt="">
+  <div class="viewer-nav">
+    <button type="button" id="viewerPrev" aria-label="이전 사진">&#8249;</button>
+    <span id="viewerCount" aria-live="polite"></span>
+    <button type="button" id="viewerNext" aria-label="다음 사진">&#8250;</button>
+  </div>
+  <button type="button" id="viewerClose">닫기</button>
+</dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <audio id="bgm" loop preload="auto"></audio>
 
 <script src="config.js"></script>
-<script src="app.js?v=7"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>
