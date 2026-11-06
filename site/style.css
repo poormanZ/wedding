@@ -125,6 +125,9 @@ dialog button { display: block; margin: 16px auto 0; }
 .viewer-nav button { margin: 0; width: 40px; height: 40px; padding: 0; font-size: 1.5rem; line-height: 1; color: var(--mist); border-color: var(--mist); background: transparent; }
 .viewer-nav span { min-width: 3.5em; text-align: center; font-variant-numeric: tabular-nums; }
 
+/* 약도는 배경이 투명한 검은 선 그림. 다크 모드는 선 색을 뒤집어 밝게 보인다 */
+.map-img { width: 100%; height: auto; margin: 0 0 24px; }
+@media (prefers-color-scheme: dark) { .map-img { filter: invert(1) brightness(.85); } }
 .venue-name { font-size: 1.1rem; font-weight: 700; margin: 0; word-break: keep-all; }
 .venue-addr { margin: 4px 0 24px; color: var(--muted); }
 .map-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
