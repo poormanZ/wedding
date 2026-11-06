@@ -137,7 +137,10 @@ dialog button { display: block; margin: 16px auto 0; }
 }
 .transit { text-align: left; margin: 32px 0 0; }
 .transit dt { font-weight: 700; color: var(--pine); }
-.transit dd { margin: 0 0 14px; }
+.transit dd { margin: 0 0 14px; word-break: keep-all; }
+.transit ul { list-style: none; margin: 0; padding: 0; }
+.transit li { position: relative; padding-left: 1em; line-height: 1.7; margin: 2px 0; }
+.transit li::before { content: "·"; position: absolute; left: .15em; color: var(--gold); font-weight: 700; }
 
 .gift details { border-bottom: 1px solid var(--mist); text-align: left; }
 .gift summary { padding: 14px 0; cursor: pointer; font-weight: 700; }

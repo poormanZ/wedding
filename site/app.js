@@ -127,7 +127,8 @@
   $("naverLink").href = "https://map.naver.com/p/search/" + q;
   $("kakaoLink").href = "https://map.kakao.com/link/search/" + q;
   if ($("googleLink")) $("googleLink").href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(window.INVITE.venue.address);
-  $("transit").innerHTML = C.venue.transit.map(t => `<dt>${t.label}</dt><dd>${t.text}</dd>`).join("");
+  $("transit").innerHTML = C.venue.transit.map(t => `<dt>${t.label}</dt><dd>${
+    Array.isArray(t.text) ? `<ul>${t.text.map(x => `<li>${x}</li>`).join("")}</ul>` : t.text}</dd>`).join("");
 
   // 복사와 안내
   const toast = (msg) => { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 1800); };
